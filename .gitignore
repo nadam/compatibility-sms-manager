@@ -1,0 +1,5 @@
+proguard.cfg
+.classpath
+bin/
+gen/
+*.DS_Store

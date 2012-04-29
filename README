@@ -1,0 +1,22 @@
+Android library project for sending SMS on all available devices.
+
+You use the library just like the SmsManager in Android and it will automatically pick the correct implementation based on the device, including the following:
+
+1. Using android.telephony.gsm.SmsManager on Cupcake (1.5) and earlier versions of Android
+2. Using android.telephony.SmsManager on Donut (1.6) and later versions of Android
+3. A work-around to prevent double messages on HTC Tattoo
+4. A work-around to prevent double messages on Samsung Galaxy S2 with ICS 4.0.3 (see http://code.google.com/p/android/issues/detail?id=27024)
+
+Example usage:
+
+    private CompatibilitySmsManager mSmsManager = CompatibilitySmsManager.getDefault();
+    ...
+        mSmsManager.sendTextMessage(phoneNumber, null, message, null, null);
+    
+See also the Android documentation at http://developer.android.com/reference/android/telephony/SmsManager.html.
+
+Dont forget to add the required permission to your manifest file.
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+Licensed under the Apache License, Version 2.0.
